@@ -1,6 +1,7 @@
 import { AUTO } from "phaser";
 import { CONFIG } from "./src/config";
-import fazenda from "./src/Scenes/fazenda";
+import Casa from "./src/Scenes/Casa";
+import Fazenda from "./src/Scenes/fazenda";
 
 
 
@@ -8,14 +9,14 @@ const config = {
   width: CONFIG.GAME_WIDTH,
   height: CONFIG.GAME_HEIGHT,
   type: AUTO,
-  scene: [fazenda],
+  scene: [Fazenda, Casa],
   physics: {
     default: 'arcade',
     arcade: {
       gravity:{
         y: 0
       },
-      debug: true
+      debug: false
     }
   },
   pixelArt: true,

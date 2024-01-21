@@ -1,0 +1,26 @@
+INSTRUÇÕES
+
+--ÁRVORE
+As árvores já nascem pronta para a colheita (não vi que tinha que plantar).
+Interagir com elas com a tecla espaço, elas mudam de estado a cada 1.5min.
+
+--Vacas
+Possuem uma rota aleatória pelo mapa
+Interagir com elas com a tecla "espaço".
+
+--Plantações
+Pegar as sementes no canto superior direito da área de plantação (coma tecla espaço)
+plantar no lugar reservado para cada uma (com a tecla espaço)
+REGAR A PLANTA COM A TECLA "E", 
+elas mudam de estado a cada 1 min, é preciso regar novamente a cada mudança de estado,
+após o terceiro estado de crescimento COLHER COM A TECLA "R"
+
+--Casa
+entrar na casa se posicionando no lado esquedo central da casa e apertanto a tecla "espaço"
+
+--Sucos e venda
+após a colheita das frutas, interagir com as mesas de crafting das respectivas frutas para fazer o suco (com a tecla espaço)
+vender os sucos/frutas na cesta no canto inferior direito da casa (com a tecla espaço)
+
+--HUD
+após entrar ou sair da casa, movimentar o player para atualizar o hud.

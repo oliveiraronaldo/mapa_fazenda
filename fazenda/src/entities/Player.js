@@ -1,3 +1,4 @@
+import Fazenda from "../Scenes/fazenda";
 import { CONFIG } from "../config";
 
 export default class Player extends Phaser.Physics.Arcade.Sprite{
@@ -8,10 +9,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
 
     isAction = false;   //diz dse a tecla espaço (de ação) está precionada
 
-    constructor(scene, x, y, touch){
+
+    constructor(scene, x, y, touch, colher, regar){
         super(scene, x, y, 'player');
 
         this.touch = touch;
+        this.colher = colher;
+        this.regar = regar;
         
         scene.add.existing(this);   //criando a imagem que o jogador vê
         scene.physics.add.existing(this);   //criando o body da fisica
@@ -22,7 +26,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
     init(){
         this.setFrame(0);
 
-        this.speed = 120;
+        this.speed = 80;
         this.frameRate = 8;
         this.direction = 'down';
         this.cursors = this.scene.input.keyboard.createCursorKeys();
@@ -70,13 +74,31 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         }
 
         //mudar a animação
-        if(this.body.velocity.x == 0 && this.body.velocity.y == 0){
+
+        if(this.regar){
+
+            this.play('regar-' + this.direction, true);
+            this.timer = setTimeout(() => {
+                this.regar = false;
+            }, 2000);
+        
+        }else if(this.colher){
+
+            this.play('colher-' + this.direction, true);
+            this.timer = setTimeout(() => {
+                this.colher = false;
+            }, 2000);
+
+        }else if(this.body.velocity.x == 0 && this.body.velocity.y == 0){
             //parado
             this.play('idle-' + this.direction, true);
-        }else{
+
+        }else if(this.body.velocity.x != 0 || this.body.velocity.y != 0){
             //movimento
             this.play('walk-' + this.direction, true);
         }
+        
+        
 
         //fazer o touch seguir o player
         let tx, ty;
@@ -171,5 +193,71 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
                 frameRate: this.frameRate,
                 repeat: -1
         });
+
+        this.anims.create({
+            key: 'colher-up',
+            frames: this.anims.generateFrameNumbers('player',{
+                start: 104, end: 111}),
+                frameRate: this.frameRate,
+                repeat: -1
+        });
+
+        this.anims.create({
+            key: 'colher-down',
+            frames: this.anims.generateFrameNumbers('player',{
+                start: 96, end: 103}),
+                frameRate: this.frameRate,
+                repeat: -1
+        });
+
+        this.anims.create({
+            key: 'colher-left',
+            frames: this.anims.generateFrameNumbers('player',{
+                start: 112, end: 119}),
+                frameRate: this.frameRate,
+                repeat: -1
+        });
+
+        this.anims.create({
+            key: 'colher-right',
+            frames: this.anims.generateFrameNumbers('player',{
+                start: 120, end: 127}),
+                frameRate: this.frameRate,
+                repeat: -1
+        });
+
+        this.anims.create({
+            key: 'regar-down',
+            frames: this.anims.generateFrameNumbers('player',{
+                start: 160, end: 167}),
+                frameRate: this.frameRate,
+                repeat: -1
+        });
+
+        this.anims.create({
+            key: 'regar-up',
+            frames: this.anims.generateFrameNumbers('player',{
+                start: 168, end: 175}),
+                frameRate: this.frameRate,
+                repeat: -1
+        });
+
+        this.anims.create({
+            key: 'regar-left',
+            frames: this.anims.generateFrameNumbers('player',{
+                start: 176, end: 183}),
+                frameRate: this.frameRate,
+                repeat: -1
+        });
+
+        this.anims.create({
+            key: 'regar-right',
+            frames: this.anims.generateFrameNumbers('player',{
+                start: 184, end: 191}),
+                frameRate: this.frameRate,
+                repeat: -1
+        });
+
+
     }
 }
