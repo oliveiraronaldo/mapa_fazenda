@@ -35,3 +35,12 @@ Vaquinhas
 HUD
 - Mostrador de dinheiro.
 - Mostrador de vegetais colhidos.
+
+
+<h2>Fazenda</h2>
+
+![Captura de tela 2024-03-05 220420](https://github.com/oliveiraronaldo/mapa_fazenda/assets/82688367/65a24238-a7c6-44d4-8e83-34e2288cca9f)
+
+<h2>Interior</h2>
+
+![Captura de tela 2024-03-05 220715](https://github.com/oliveiraronaldo/mapa_fazenda/assets/82688367/268a9bf4-3a0d-4b84-908a-53d8246d85a6)
